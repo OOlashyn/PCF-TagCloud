@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<manifest>
+  <control namespace="dancingwithcrm" constructor="TagCloud" version="1.0.0" display-name-key="Tag Cloud" description-key="Present your subgrid as Tag Cloud" control-type="standard">
+    <!-- dataset node represents a set of entity records on CDS; allow more than one datasets -->
+    <data-set name="viewDataSet" display-name-key="Dataset to show in a tag cloud"> 
+      <!-- 'property-set' node represents a unique, configurable property that each record in the dataset must provide. -->
+      <property-set name="NameAttribute" display-name-key="NameAttribute" description-key="Name of the tag" of-type="SingleLine.Text" usage="bound" required="true" />
+      <property-set name="NumberAttribute" display-name-key="NumberAttribute" description-key="Number that will be transformed in tag size" of-type="Whole.None" usage="bound" required="false" />
+    </data-set>
+    <property name="EnableTagSize" display-name-key="Enable Tag Size" description-key="Possible values 0/1. If set to 1 tags will have different size. NumberAttribute, MinSize and MaxSize should be provided if set to 1." of-type="Whole.None" usage="input" required="false" />
+    <property name="MinSize" display-name-key="Min Size" description-key="Minimum size of tag in pixels (default 20)" of-type="Whole.None" usage="input" required="false" />
+    <property name="MaxSize" display-name-key="Max Size" description-key="Maximum size of tag in pixels (default 50)" of-type="Whole.None" usage="input" required="false" />
+    <property name="EnableAnimation" display-name-key="Enable Animation" description-key="Possible values 0/1. If set to 1 tag cloud will be animated" of-type="Whole.None" usage="input" required="false" />
+    <property name="ReanimationTime" display-name-key="Reanimation Time" description-key="Cloud wil be reanimated after this time value (in milliseconds) (default 5000)" of-type="Whole.None" usage="input" required="false" />
+    <resources>
+      <code path="index.ts" order="1"/>
+      <css path="main.css" order="1" />
+      <!-- UNCOMMENT TO ADD MORE RESOURCES
+      <css path="css/TagCloud.css" order="1" />
+      <resx path="strings/TagCloud.1033.resx" version="1.0.0" />
+      -->
+    </resources>
+    <!-- UNCOMMENT TO ENABLE THE SPECIFIED API
+    <feature-usage>
+      <uses-feature name="Device.captureAudio" required="true" />
+      <uses-feature name="Device.captureImage" required="true" />
+      <uses-feature name="Device.captureVideo" required="true" />
+      <uses-feature name="Device.getBarcodeValue" required="true" />
+      <uses-feature name="Device.getCurrentPosition" required="true" />
+      <uses-feature name="Device.pickFile" required="true" />
+      <uses-feature name="Utility" required="true" />
+      <uses-feature name="WebAPI" required="true" />
+    </feature-usage>
+    -->
+  </control>
+</manifest>
