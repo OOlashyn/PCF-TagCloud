@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <manifest>
-  <control namespace="dancingwithcrm" constructor="TagCloud" version="1.0.0" display-name-key="Tag Cloud" description-key="Present your subgrid as Tag Cloud" control-type="standard">
+  <control namespace="dancingwithcrm" constructor="TagCloud" version="1.0.1" display-name-key="Tag Cloud" description-key="Present your subgrid as Tag Cloud" control-type="standard">
     <!-- dataset node represents a set of entity records on CDS; allow more than one datasets -->
     <data-set name="viewDataSet" display-name-key="Dataset to show in a tag cloud"> 
       <!-- 'property-set' node represents a unique, configurable property that each record in the dataset must provide. -->

@@ -110,35 +110,6 @@ export class TagCloud implements ComponentFramework.StandardControl<IInputs, IOu
 
 			this.props.recordsLoaded = !context.parameters.viewDataSet.paging.hasNextPage;
 
-			// ------------------ for local dev
-			this.enableTagSize = context.parameters.EnableTagSize.raw == 1;
-
-			this.enableAnimation = context.parameters.EnableAnimation.raw == 1;
-
-			this.maxSize = 50;
-
-			if (context.parameters.MaxSize.raw != null && context.parameters.MaxSize.raw > 0) {
-				this.maxSize = context.parameters.MaxSize.raw;
-			}
-
-			this.minSize = 20;
-
-			if (context.parameters.MinSize.raw != null && context.parameters.MinSize.raw > 0) {
-				this.minSize = context.parameters.MinSize.raw;
-			}
-
-			if (this.maxSize < this.minSize) {
-				this.maxSize = 50;
-				this.minSize = 20;
-			}
-
-			this.animationTime = 5000;
-
-			if (context.parameters.ReanimationTime.raw != null && context.parameters.ReanimationTime.raw != 0) {
-				this.animationTime = context.parameters.ReanimationTime.raw;
-			}
-			//-----------------------------------------
-
 			this.getDataFromDataSet(dataSet);
 
 			console.log("props", this.props);
@@ -204,15 +175,16 @@ export class TagCloud implements ComponentFramework.StandardControl<IInputs, IOu
 	}
 
 	private openRecord(id:string){
-		let entityReference = this._context.parameters.viewDataSet.records[
-			id
-		  ].getNamedReference();
+		let entityName:string = this._context.parameters.viewDataSet.getTargetEntityType();
 
-		  let entityFormOptions = {
-			entityName: entityReference.name,
-			entityId: entityReference.id.guid
-		  };
-		  this._context.navigation.openForm(entityFormOptions);
+		let entityFormOptions = {
+			entityName:  entityName,
+			entityId: id
+		};
+		
+		console.log('openRecord', entityFormOptions);
+
+		this._context.navigation.openForm(entityFormOptions);
 	}
 
 	/** 
